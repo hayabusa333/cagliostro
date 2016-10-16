@@ -1,7 +1,7 @@
 <div class="row marketing">
   <table class="table">
     <tbody>
-    <%= for csv <- @csv_date do %>
+    <%= for csv <- @csv_data do %>
       <tr>
       <%= for c <- csv do %>
         <td><%= c %></td>
