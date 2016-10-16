@@ -12,10 +12,17 @@ defmodule Cagliostro.PageController do
     |> Enum.reduce([], fn(csv_file, acc) ->
       {:ok, csv} = File.read!(csv_dir <> "/"  <> csv_file )
       |> ExCsv.parse
-      Logger.info csv_file
       acc ++ csv
     end)
 
-    render conn, "index.html", csv_data: csv_data
+    csv_name_files = csv_files
+    |> Enum.reduce([], fn(csv_file, acc) ->
+      csv_file
+      acc ++ [csv_file]
+    end)
+
+    Logger.info csv_name_files
+
+    render conn, "index.html", csv_data: csv_data, csv_name_files: csv_name_files
   end
 end

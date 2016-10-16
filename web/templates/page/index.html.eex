@@ -1,13 +1,16 @@
 <div class="row marketing">
   <table class="table">
+  <%= for csv_name <- @csv_name_files do %>
+    <h4><%= csv_name %></h4>
     <tbody>
-    <%= for csv <- @csv_data do %>
-      <tr>
-      <%= for c <- csv do %>
-        <td><%= c %></td>
+      <%= for csv <- @csv_data do %>
+        <tr>
+        <%= for c <- csv do %>
+          <td><%= c %></td>
+        <% end %>
+        </tr>
       <% end %>
-      </tr>
+      </tbody>
     <% end %>
-    </tbody>
   </table>
 </div>
