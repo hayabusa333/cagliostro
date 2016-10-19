@@ -20,3 +20,4 @@ import $ from "chart.js"
 // paths "./socket" or full ones "web/static/js/socket".
 
 // import socket from "./socket"
+import { Chart } from "web/static/js/chart"
