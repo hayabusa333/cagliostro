@@ -15,6 +15,9 @@ defmodule Cagliostro.PageController do
       acc ++ csv
     end)
 
+    json_data = csv_data
+    |> Poison.encode!
+
     csv_name_files = csv_files
     |> Enum.reduce([], fn(csv_file, acc) ->
       csv_file
@@ -22,6 +25,7 @@ defmodule Cagliostro.PageController do
     end)
 
     Logger.info csv_name_files
+    Logger.info json_data
 
     render conn, "index.html", csv_data: csv_data, csv_name_files: csv_name_files
   end
