@@ -3,7 +3,7 @@
   <%= for csv_name <- @csv_name_files do %>
     <h4><%= csv_name %></h4>
     <tbody>
-      <%= for jsons <- Map.get(@json_data, "body") do  %>
+      <%= for jsons <- Map.get(Poison.Parser.parse!(@json_data), "body") do  %>
         <tr>
           <%= for json <- jsons do %>
             <td><%= json %></td>

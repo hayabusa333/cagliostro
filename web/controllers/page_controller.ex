@@ -17,7 +17,6 @@ defmodule Cagliostro.PageController do
 
     json_data = csv_data
     |> Poison.encode!
-    |> Poison.Parser.parse!
 
     csv_name_files = csv_files
     |> Enum.reduce([], fn(csv_file, acc) ->
@@ -26,7 +25,6 @@ defmodule Cagliostro.PageController do
     end)
 
     Logger.info csv_name_files
-    Logger.info Map.get(json_data, "body")
 
     render conn, "index.html", csv_name_files: csv_name_files, json_data: json_data
   end
