@@ -3,14 +3,17 @@
   <%= for csv_name <- @csv_name_files do %>
     <h4><%= csv_name %></h4>
     <tbody>
-      <%= for csv <- @csv_data do %>
+      <%= for jsons <- Map.get(@json_data, "body") do  %>
         <tr>
-        <%= for c <- csv do %>
-          <td><%= c %></td>
-        <% end %>
+          <%= for json <- jsons do %>
+            <td><%= json %></td>
+          <% end %>
         </tr>
       <% end %>
-      </tbody>
-    <% end %>
+    </tbody>
+  <% end %>
   </table>
+</div>
+<div style="width: 50%">
+  <canvas onload="displayLineChart();" id="myChart" height="450" width="600"></canvas>
 </div>
