@@ -17,3 +17,10 @@
 <div style="width: 50%">
   <canvas onload="displayLineChart();" id="myChart" height="450" width="600"></canvas>
 </div>
+<a onclick="sample(<%= @json_data%>)">json</a>
+
+<script language="JavaScript">
+function sample(json_data) {
+  console.info(json_data)  
+}
+</script>
