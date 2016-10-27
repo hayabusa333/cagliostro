@@ -22,8 +22,10 @@
 <script language="JavaScript">
 function sample(json_data) {
   console.info(json_data)  
-  for(var i in json_data) {
-    console.info(json_data[i])
+  for(var i in json_data.body) {
+    for(var j in json_data.body[i]) {
+      console.info(json_data.body[i][j])
+    }
   }
 }
 </script>
